@@ -10,7 +10,7 @@ const Main = () => {
         <Header mode={AppRoute.MAIN}/>
         <section className="main__wrapper">
             <Filter />
-            <Board />
+            <Board sortIsNeed={true} loadIsNeed={true}/>
         </section>
         </>
     )

@@ -1,8 +1,8 @@
 import React from "react";
 
-const Card = () => {
+const Card = ({data}) => {
     return (
-        <article classNameName="card">
+        <article className="card">
               <div className="card__form">
                 <div className="card__inner">
                   <div className="card__control">
@@ -27,12 +27,12 @@ const Card = () => {
                   </div>
 
                   <div className="card__textarea-wrap">
-                    <p className="card__text--theme">Nulla quis lorem ut libero malesuada feugiat.</p>
-                    <p className="card__text--comment">Curabitur aliquet quam id dui posuere blandit. Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat.</p>
+                    <p className="card__text--theme">{data.title}</p>
+                    <p className="card__text--comment">{data.body}</p>
                   </div>
 
                   <div className="card__settings">
-                    <span className="card__date">23 Сентября</span>
+                    <span className="card__date">{data.date}</span>
                   </div>
                 </div>
               </div>

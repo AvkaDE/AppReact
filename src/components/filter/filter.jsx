@@ -1,6 +1,7 @@
 import React from "react";
+import storage from "../../storage";
 
-const Filter = () => {
+const Filter = ({hideButton}) => {
   return (
     <section className="main__filter filter">
       <input
@@ -51,9 +52,9 @@ const Filter = () => {
       <label htmlFor="filter__favorite" className="filter__label">
         Избранное <span className="filter__favorite-count count">1</span>
       </label>
-      <button name="control" className="btn-add">
+      {!hideButton && <button name="control" className="btn-add">
         Создать
-      </button>
+      </button>}
     </section>
   );
 };

@@ -8,7 +8,7 @@ const Archive = () => {
         <>
         <Header mode={AppRoute.ARCHIVE}/>
         <section className="main__wrapper">
-            <Board />
+            <Board sortIsNeed={false} loadIsNeed={true} mode={AppRoute.ARCHIVE}/>
         </section>
         </>
     )
