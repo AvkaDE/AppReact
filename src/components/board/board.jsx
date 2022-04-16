@@ -5,10 +5,10 @@ import NoEvents from "../no-events/no-events";
 import Loadmore from "../load-more/load-more";
 import Event from "../event/event";
 import storage from "../../storage";
-import { AppRoute } from "../../const";
 
-const Board = ({ sortIsNeed, loadIsNeed, isEdit, isAdd, mode }) => {
-    const cardObjects = mode === AppRoute.ARCHIVE ? storage.archivedCards : storage.cards;
+
+const Board = ({ sortIsNeed, loadIsNeed, isEdit, isAdd }) => {
+    
     if (isEdit) {
         return (
             <section className="board">
@@ -26,8 +26,8 @@ const Board = ({ sortIsNeed, loadIsNeed, isEdit, isAdd, mode }) => {
             <section className="board">
                 {sortIsNeed && <Sorting />}
                 <div className="board__events">
-                    {cardObjects.length > 0
-                        ? cardObjects.map(card => <Card key={card.id} data={card} />)
+                    {storage.cards.length > 0
+                        ? storage.cards.map(card => <Card key={card.id} data={card} />)
                         : <NoEvents />
                     }
                 </div>

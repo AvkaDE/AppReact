@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\ReactAPP\\markup"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "markup"
+	}
+}

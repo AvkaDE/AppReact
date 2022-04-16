@@ -1,14 +1,19 @@
 import React from "react";
 import Board from "../../components/board/board";
 import Header from "../../components/header/header";
-import { AppRoute } from "../../const";
 
-const Archive = () => {
+
+const Archive = (props) => {
+    // const { id } = props.match.params;
+
+    // const render = () => {
+    //     return id ? `Id availble - ${id}` : 'No ID'
+    // }
     return (
         <>
-        <Header mode={AppRoute.ARCHIVE}/>
+        <Header mode={props.match.path}/>
         <section className="main__wrapper">
-            <Board sortIsNeed={false} loadIsNeed={true} mode={AppRoute.ARCHIVE}/>
+            <Board sortIsNeed={false} loadIsNeed={true} mode={props.match.path}/>
         </section>
         </>
     )
