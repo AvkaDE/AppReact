@@ -4,22 +4,21 @@ import Main from "../../pages/main/main";
 import Archive from "../../pages/archive/archive";
 import Form from "../../pages/form/form";
 import NotFound from "../../pages/notfound/notfound"
-import { AppRoute } from "../../const";
 
-const App = () => {
+const App = ({events}) => {
     return (
         <>
             <BrowserRouter>
                 <Switch>
-                    <Route path={AppRoute.MAIN} exact component={Main}>
+                    <Route path="/" exact>
+                        <Main events={events}/>
                     </Route>
-                    <Route path={AppRoute.ARCHIVE} exact component={Archive}>
+                    <Route path="/archive" exact>
+                    <Archive events={events}/>
                     </Route>
-                    <Route path={AppRoute.EVENT} exact component={Form}>
+                    <Route path="/event/:id?" exact component={Form}>
                     </Route>
-                    <Route path={AppRoute.ADD} exact component={Form}>
-                    </Route>
-                    <Route path="*" component={NotFound}>
+                    <Route component={NotFound}>
                     </Route>
                 </Switch>
             </BrowserRouter>

@@ -1,19 +1,17 @@
 import React from "react";
 import Header from "../../components/header/header";
 import Filter from "../../components/filter/filter";
+import Event from "../../components/event/event";
 
-import Board from "../../components/board/board";
-
-const Form = ({ match: { params: { id } , path }}) => {
+const Form = ({ match: { params: { id } }}) => {
     return (
         <>
-            <Header mode={path} />
+            <Header />
             <section className="main__wrapper">
                 <Filter hideButton={true} />
-                {id 
-                    ? <Board sortIsNeed={false} loadIsNeed={false} isEdit={true} isAdd={false} /> 
-                    : <Board sortIsNeed={false} loadIsNeed={false} isEdit={false} isAdd={true} />
-                }
+                <section className="board">
+                    <Event id={id}/>
+                </section>
             </section>
         </>
     )

@@ -2,18 +2,15 @@ import React from "react";
 import Board from "../../components/board/board";
 import Header from "../../components/header/header";
 
+const Archive = ({events}) => {
 
-const Archive = (props) => {
-    // const { id } = props.match.params;
+    const archiveEvents = events.filter(x => x.archive)
 
-    // const render = () => {
-    //     return id ? `Id availble - ${id}` : 'No ID'
-    // }
     return (
         <>
-        <Header mode={props.match.path}/>
+        <Header />
         <section className="main__wrapper">
-            <Board sortIsNeed={false} loadIsNeed={true} mode={props.match.path}/>
+            <Board events={archiveEvents}/>
         </section>
         </>
     )

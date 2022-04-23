@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 
-const isActive = (match , location) => {
-  if (location.pathname === "/" || location.pathname === "/event" || location.pathname === "/event/123") {
+const isActive = (_ , location) => {
+  if (location.pathname === "/" || location.pathname === "/event" || location.pathname === `/event/:id?`) {
     return true;
   }
 }

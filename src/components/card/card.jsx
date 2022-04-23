@@ -1,13 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
+import "moment/locale/ru";
+import "./card.css";
 
-const Card = ({data}) => {
+const Card = ({_id, theme, comment, date, favorite}) => {
+
+    const formatDate = moment(date).format('DD MMMM')
+
     return (
         <article className="card">
               <div className="card__form">
                 <div className="card__inner">
                   <div className="card__control">
-                    <Link to="/event/123" type="button" className="card__btn card__btn--edit">
+                    <Link 
+                    to={{
+                      pathname: `/event/${_id}`,
+                      state: { comment }
+                    }}
+                    type="button" className="card__btn card__btn--edit">
                       Редактировать
                     </Link>
                     <button type="button" className="card__btn card__btn--archive">
@@ -15,7 +26,7 @@ const Card = ({data}) => {
                     </button>
                     <button
                       type="button"
-                      className="card__btn card__btn--favorites"
+                      className={`card__btn card__btn--favorites ${favorite && 'favorite-on'}`}
                     >
                       В избранное
                     </button>
@@ -28,12 +39,12 @@ const Card = ({data}) => {
                   </div>
 
                   <div className="card__textarea-wrap">
-                    <p className="card__text--theme">{data.title}</p>
-                    <p className="card__text--comment">{data.body}</p>
+                    <p className="card__text--theme">{theme}</p>
+                    <p className="card__text--comment">{comment}</p>
                   </div>
 
                   <div className="card__settings">
-                    <span className="card__date">{data.date}</span>
+                    <span className="card__date">{formatDate}</span>
                   </div>
                 </div>
               </div>
