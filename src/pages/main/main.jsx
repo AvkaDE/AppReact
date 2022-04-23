@@ -4,13 +4,13 @@ import Filter from "../../components/filter/filter";
 import Board from "../../components/board/board";
 
 
-const Main = (props) => {
+const Main = ({events}) => {
     return (
         <>
-        <Header mode={props.match.path}/>
+        <Header />
         <section className="main__wrapper">
             <Filter />
-            <Board sortIsNeed={true} loadIsNeed={true}/>
+            <Board events={events}/>
         </section>
         </>
     )
