@@ -3,18 +3,20 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Main from "../../pages/main/main";
 import Archive from "../../pages/archive/archive";
 import Form from "../../pages/form/form";
-import NotFound from "../../pages/notfound/notfound"
+import NotFound from "../../pages/notfound/notfound";
+import { observer } from "mobx-react-lite";
 
-const App = ({events}) => {
+const App = observer(() => {
+
     return (
         <>
             <BrowserRouter>
                 <Switch>
                     <Route path="/" exact>
-                        <Main events={events}/>
+                        <Main />
                     </Route>
                     <Route path="/archive" exact>
-                    <Archive events={events}/>
+                    <Archive />
                     </Route>
                     <Route path="/event/:id?" exact component={Form}>
                     </Route>
@@ -24,6 +26,6 @@ const App = ({events}) => {
             </BrowserRouter>
         </>
     )
-}
+})
 
 export default App;
