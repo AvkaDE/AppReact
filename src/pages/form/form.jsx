@@ -1,17 +1,18 @@
 import React from "react";
 import Header from "../../components/header/header";
 import Filter from "../../components/filter/filter";
-import { AppRoute } from "../../const";
-import Board from "../../components/board/board";
+import Event from "../../components/event/event";
 
-const Form = () => {
+const Form = ({ match: { params: { id } }}) => {
     return (
         <>
-        <Header mode={AppRoute.EVENT}/>
-        <section className="main__wrapper">
-            <Filter hideButton={true}/>
-            <Board sortIsNeed={false} loadIsNeed={false} isEdit={true} isAdd={false}/>
-        </section>
+            <Header />
+            <section className="main__wrapper">
+                <Filter hideButton={true} />
+                <section className="board">
+                    <Event id={id}/>
+                </section>
+            </section>
         </>
     )
 }

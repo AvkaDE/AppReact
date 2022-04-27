@@ -3,38 +3,26 @@ import Card from "../card/card";
 import Sorting from "../sorting/sorting";
 import NoEvents from "../no-events/no-events";
 import Loadmore from "../load-more/load-more";
-import Event from "../event/event";
-import storage from "../../storage";
-import { AppRoute } from "../../const";
+import { useLocation } from "react-router-dom";
 
-const Board = ({ sortIsNeed, loadIsNeed, isEdit, isAdd, mode }) => {
-    const cardObjects = mode === AppRoute.ARCHIVE ? storage.archivedCards : storage.cards;
-    if (isEdit) {
-        return (
-            <section className="board">
-               <Event isEdit={true}/>
-            </section>
-        )
-    } else if (isAdd) {
-        return (
-            <section className="board">
-               <Event isEdit={false}/>
-            </section>
-        )
-    } else {
-        return (
-            <section className="board">
-                {sortIsNeed && <Sorting />}
-                <div className="board__events">
-                    {cardObjects.length > 0
-                        ? cardObjects.map(card => <Card key={card.id} data={card} />)
+
+
+const Board = ({ events }) => {
+
+  const location = useLocation();
+
+  return (
+    <section className="board">
+      {(location.pathname === "/") && <Sorting />}
+      <div className="board__events">
+        {events.length > 0
+                        ? events.map(event => <Card {...event} key={event._id} />)
                         : <NoEvents />
                     }
-                </div>
-                {loadIsNeed && <Loadmore />}
-            </section>
-        )
-    }
-}
+      </div>
+      {(location.pathname === "/" || location.pathname === "/archive") && <Loadmore />}
+    </section>
+  );
+};
 
 export default Board;

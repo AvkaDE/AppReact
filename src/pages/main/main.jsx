@@ -2,18 +2,23 @@ import React from "react";
 import Header from "../../components/header/header";
 import Filter from "../../components/filter/filter";
 import Board from "../../components/board/board";
-import { AppRoute } from "../../const";
+import { events } from "../../store/index";
+import { observer } from "mobx-react-lite";
 
-const Main = () => {
+
+const Main = observer(() => {
+
+    const { notArchiveData } = events
+
     return (
         <>
-        <Header mode={AppRoute.MAIN}/>
+        <Header />
         <section className="main__wrapper">
             <Filter />
-            <Board sortIsNeed={true} loadIsNeed={true}/>
+            <Board events={notArchiveData}/>
         </section>
         </>
     )
-}
+})
 
 export default Main;

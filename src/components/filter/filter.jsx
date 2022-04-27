@@ -1,5 +1,5 @@
 import React from "react";
-import storage from "../../storage";
+import { Link } from "react-router-dom";
 
 const Filter = ({hideButton}) => {
   return (
@@ -52,9 +52,9 @@ const Filter = ({hideButton}) => {
       <label htmlFor="filter__favorite" className="filter__label">
         Избранное <span className="filter__favorite-count count">1</span>
       </label>
-      {!hideButton && <button name="control" className="btn-add">
+      {!hideButton && <Link to="/event" name="control" className="btn-add">
         Создать
-      </button>}
+      </Link>}
     </section>
   );
 };

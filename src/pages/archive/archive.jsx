@@ -1,17 +1,21 @@
 import React from "react";
 import Board from "../../components/board/board";
 import Header from "../../components/header/header";
-import { AppRoute } from "../../const";
+import { events } from "../../store/index";
+import { observer } from "mobx-react-lite";
 
-const Archive = () => {
+const Archive = observer(() => {
+
+    const { archiveData } = events
+
     return (
         <>
-        <Header mode={AppRoute.ARCHIVE}/>
+        <Header />
         <section className="main__wrapper">
-            <Board sortIsNeed={false} loadIsNeed={true} mode={AppRoute.ARCHIVE}/>
+            <Board events={archiveData}/>
         </section>
         </>
     )
-}
+})
 
 export default Archive;
