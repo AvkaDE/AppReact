@@ -1,8 +1,8 @@
 import React from "react";
 
-const Loadmore = () => {
+const Loadmore = ({handleLoadMore}) => {
     return (
-        <button className="load-more" type="button">Загрузить еще</button>
+        <button className="load-more" type="button" onClick={handleLoadMore}>Загрузить еще</button>
     )
 }
 
